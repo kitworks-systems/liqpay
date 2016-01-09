@@ -1,5 +1,6 @@
 import operator
 from urllib.parse import urljoin
+
 from liqpay.datastructures import Params
 from liqpay.settings import API_URL
 from liqpay.utils import generate_request_data

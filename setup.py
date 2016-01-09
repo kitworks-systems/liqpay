@@ -1,7 +1,9 @@
 #!/usr/bin/env python
-from setuptools import setup, find_packages
 from codecs import open
 from os import path
+
+from setuptools import setup, find_packages
+
 from liqpay import __version__, __title__
 
 

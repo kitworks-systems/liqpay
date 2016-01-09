@@ -1,7 +1,8 @@
 import unittest
+
+from liqpay import LiqPay
 from liqpay.exceptions import ParamValidationError, SignatureMismatch, ParamRequired
 from liqpay.utils import generate_signature, encode_data, decode_response_data
-from liqpay import LiqPay
 
 
 class UtilsTestCase(unittest.TestCase):

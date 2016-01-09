@@ -1,5 +1,6 @@
-from collections import MutableMapping
 import json
+from collections import MutableMapping
+
 from liqpay.exceptions import ParamValidationError, ParamRequired
 from liqpay.settings import SUPPORTED_CURRENCIES, PAY_WAYS
 

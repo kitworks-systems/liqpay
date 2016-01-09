@@ -2,6 +2,7 @@ import base64
 import hashlib
 import json
 from collections import MutableMapping
+
 from liqpay.datastructures import Params
 from liqpay.exceptions import SignatureMismatch
 
