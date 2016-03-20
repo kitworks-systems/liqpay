@@ -1,4 +1,3 @@
-import json
 from urllib.parse import urljoin
 
 import requests
@@ -19,7 +18,7 @@ class Api:
         request_url = self._get_request_url(url)
         request_data = self._get_request_data(params)
         response = requests.post(request_url, data=request_data)
-        return json.loads(response.text)
+        return response.json()
 
     def decode_callback(self, data, signature):
         """
