@@ -69,17 +69,19 @@ class LiqPayTestCase(unittest.TestCase):
             data='eyJhY3Rpb24iOiAicGF5IiwgImFtb3VudCI6ICIzOTQwIiwgImN1cnJlbmN5IjogIlVBSCIsICJkZXNjcmlwdGlvbiI6ICJ0ZXN0IiwgIm9yZGVyX2lkIjogMSwgInB1YmxpY19rZXkiOiAicHVibGljS2V5IiwgInNhbmRib3giOiAxLCAidmVyc2lvbiI6IDN9',
             signature='nELNtiwxyaLzvj1hmCrxt78W/qE='
         )
-        form = self.liqpay.get_form(sandbox=True)
+        form = self.liqpay.get_form(sandbox=True, params=params)
 
-        self.assertEqual(form.render(params), expected_form_out)
+        self.assertEqual(form.render(), expected_form_out)
 
         # test form without required param
         del params['amount']
-        self.assertRaises(ParamRequired, form.render, params)
+        with self.assertRaises(ParamRequired):
+            form.params = params
 
         # test params validation
         params['currency'] = 'MXN'  # unsupported currency
-        self.assertRaises(ParamValidationError, form.render, params)
+        with self.assertRaises(ParamValidationError):
+            form.params = params
 
 
 if __name__ == '__main__':
