@@ -22,5 +22,5 @@ class LiqPay:
         self._private_key = private_key
         self.api = Api(self._public_key, self._private_key)
 
-    def get_form(self, lang=None, sandbox=False):
-        return Form(self._public_key, self._private_key, lang, sandbox)
+    def get_form(self, lang=None, sandbox=False, params=None):
+        return Form(self._public_key, self._private_key, lang, sandbox, params)
