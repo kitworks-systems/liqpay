@@ -79,6 +79,11 @@ class LiqPayTestCase(unittest.TestCase):
             form.params = params
 
         # test params validation
+        params['language'] = 'uk'  # unsupported language
+        with self.assertRaises(ParamValidationError):
+            form.params = params
+        del params['language']
+
         params['currency'] = 'MXN'  # unsupported currency
         with self.assertRaises(ParamValidationError):
             form.params = params

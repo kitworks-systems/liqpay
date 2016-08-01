@@ -2,7 +2,7 @@ import json
 from collections import MutableMapping
 
 from liqpay.exceptions import ParamValidationError, ParamRequired
-from liqpay.settings import SUPPORTED_CURRENCIES, PAY_WAYS
+from liqpay.settings import SUPPORTED_CURRENCIES, SUPPORTED_LANGUAGES
 
 
 class Params(MutableMapping):
@@ -11,7 +11,7 @@ class Params(MutableMapping):
         'amount': lambda x: float(x) > 0,
         'description': lambda x: x,
         'currency': lambda x: x in SUPPORTED_CURRENCIES,
-        'pay_way': lambda x: x in PAY_WAYS,
+        'language': lambda x: x in SUPPORTED_LANGUAGES,
     }
     post_processors = {
         'sandbox': lambda x: int(bool(x))

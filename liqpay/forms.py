@@ -19,8 +19,7 @@ class Form:
     )
     INPUT_TEMPLATE = '<input type="hidden" name="{name}" value="{value}"/>'
 
-    def __init__(self, public_key, private_key, lang=None, sandbox=False, params=None):
-        self.lang = lang or self.DEFAULT_LANG
+    def __init__(self, public_key, private_key, sandbox=False, params=None):
         self.public_key = public_key
         self.private_key = private_key
         self.sandbox = sandbox
@@ -51,9 +50,8 @@ class Form:
         ]
 
     def render(self):
-        inputs = self.get_inputs()
         return self.TEMPLATE.format(
             action=self.ACTION_URL,
-            language=self.lang,
-            param_inputs='\n\t'.join(inputs)
+            language=self.params.get('language', self.DEFAULT_LANG),
+            param_inputs='\n\t'.join(self.get_inputs())
         )
