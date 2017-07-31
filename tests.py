@@ -60,7 +60,7 @@ class LiqPayTestCase(unittest.TestCase):
             'order_id': 1,
         }
         expected_form_out = (
-            '<form method="post" action="https://www.liqpay.com/api/checkout/" accept-charset="utf-8">\n'
+            '<form method="post" action="https://www.liqpay.ua/api/checkout/" accept-charset="utf-8">\n'
             '\t<input type="hidden" name="data" value="{data}"/>\n'
             '\t<input type="hidden" name="signature" value="{signature}"/>\n'
             '\t<input type="image" src="//static.liqpay.com/buttons/p1ru.radius.png" name="btn_text"/>\n'
