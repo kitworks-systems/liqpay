@@ -4,8 +4,6 @@ from os import path
 
 from setuptools import setup, find_packages
 
-from liqpay import __version__, __title__
-
 
 here = path.abspath(path.dirname(__file__))
 
@@ -16,8 +14,8 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='liqpay',
-    version=__version__,
-    description=__title__,
+    version='1.0',
+    description='LiqPay Python SDK',
     long_description=long_description,
     classifiers=[
         'Development Status :: 4 - Beta',
@@ -28,6 +26,7 @@ setup(
         'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
     keywords='liqpay payment',
     packages=find_packages(),

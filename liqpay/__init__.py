@@ -1,19 +1,8 @@
-"""
-LiqPay Python SDK
-~~~~~~~~~~~~~~~~~
-supports Python 3.x version
-requires requests module
-"""
-
-__title__ = 'LiqPay Python SDK'
-__version__ = '1.0'
+from liqpay.api import Api
+from liqpay.forms import Form
 
 
 __all__ = ['LiqPay']
-
-
-from liqpay.api import Api
-from liqpay.forms import Form
 
 
 class LiqPay:
