@@ -14,7 +14,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='liqpay',
-    version='1.0',
+    version='1.1',
     description='LiqPay Python SDK',
     long_description=long_description,
     classifiers=[

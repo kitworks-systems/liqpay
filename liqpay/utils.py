@@ -3,7 +3,7 @@ import hashlib
 import json
 from collections import MutableMapping
 
-from liqpay.datastructures import Params
+from liqpay.params import Params
 from liqpay.exceptions import SignatureMismatch
 
 

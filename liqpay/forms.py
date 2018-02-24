@@ -1,8 +1,8 @@
 import operator
 from urllib.parse import urljoin
 
-from liqpay.datastructures import Params
-from liqpay.settings import API_URL
+from liqpay.params import Params
+from liqpay.constants import API_URL
 from liqpay.utils import generate_request_data
 
 
@@ -13,8 +13,8 @@ class Form:
 
     TEMPLATE = (
         '<form method="post" action="{action}" accept-charset="utf-8">\n'
-        '\t{param_inputs}\n'
-        '\t<input type="image" src="//static.liqpay.com/buttons/p1{language}.radius.png" name="btn_text"/>\n'
+        '    {param_inputs}\n'
+        '    <input type="image" src="//static.liqpay.com/buttons/p1{language}.radius.png" name="btn_text"/>\n'
         '</form>'
     )
     INPUT_TEMPLATE = '<input type="hidden" name="{name}" value="{value}"/>'
@@ -42,7 +42,7 @@ class Form:
 
     def get_inputs(self):
         if not self.params:
-            raise Exception('Params must be set')
+            raise ValueError('Params must be set')
         request_data = generate_request_data(self.private_key, self.params)
         return [
             self.INPUT_TEMPLATE.format(name=k, value=v)
@@ -53,5 +53,5 @@ class Form:
         return self.TEMPLATE.format(
             action=self.ACTION_URL,
             language=self.params.get('language', self.DEFAULT_LANG),
-            param_inputs='\n\t'.join(self.get_inputs())
+            param_inputs='\n    '.join(self.get_inputs())
         )

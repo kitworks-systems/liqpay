@@ -2,8 +2,8 @@ from urllib.parse import urljoin
 
 import requests
 
-from liqpay.datastructures import Params
-from liqpay.settings import API_URL
+from liqpay.params import Params
+from liqpay.constants import API_URL
 from liqpay.utils import generate_request_data, decode_response_data
 
 
